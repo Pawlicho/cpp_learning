@@ -9,14 +9,14 @@ struct node {
 
 class linked_list {
     private:
-      node* head;
-      node* tail;
+      node* _head;
+      node* _tail;
     public:
        linked_list();
-       void add(int data);
-       void front(int data);
+       void append(int data);
+       void insert(int data);
        void display();
-
+       void insert(int data, size_t place);
 };
 
 #endif 
