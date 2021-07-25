@@ -9,10 +9,12 @@ int main() {
        list.append(j);
    }
     list.display();
-    list.insert(29,4);
+    
+    list.remove(2);
     list.display();
-    list.insert(278,2);
+    list.remove(0);
     list.display();
 
+  
     return 0;
 }

@@ -1,10 +1,8 @@
 #include <iostream>
 #include "linked.h"
 
-//Default constructor 
-linked_list::linked_list() {_head=NULL; _tail=NULL;}
+linked_list::linked_list() {head_=NULL; tail_=NULL;}
 
-//Method which appends list with a new node
 void linked_list::append(int data) 
 {
 
@@ -13,39 +11,38 @@ void linked_list::append(int data)
     temp->next = NULL;
 
 
-    if (_head==NULL) {
-        _head=temp;
-        _tail=temp;
+    if (head_==NULL) {
+        head_=temp;
+        tail_=temp;
     }
 
 
     else {
-        _tail->next=temp;
-        _tail=_tail->next;
+        tail_->next=temp;
+        tail_=tail_->next;
     }
 
 }
 
-//Method that displays element of the list in current order
 void linked_list::display() 
 {
     node *temp;
-    temp = _head;
+    temp = head_;
 
     while (temp!=NULL) {
         std::cout<<temp->data<<' ';
         temp=temp->next;
     }
     std::cout<<std::endl;
+    delete temp;
 }
 
-//Method which insert new node at the beginning of the list with given data
 void linked_list::insert(int data) 
 {
     node* temp = new node;
     temp->data = data;
-    temp->next = _head;
-    _head = temp;
+    temp->next = head_;
+    head_ = temp;
 }
 
 void linked_list::insert(int data, size_t place)
@@ -58,8 +55,8 @@ void linked_list::insert(int data, size_t place)
         insert(data);
         return;
     }
-    node* temp2 = _head;
-    //With this loop i look for the correct place to insert new node !!!!
+    node* temp2 = head_;
+    
     for (int i=0;i<place-1;i++) {
         temp2 = temp2->next;
     }
@@ -68,5 +65,20 @@ void linked_list::insert(int data, size_t place)
     
 }
 
-
+void linked_list::remove(size_t place)
+{
+    node* temp1 = head_;
+    if (place==0) {
+        head_=temp1->next;
+        delete temp1;
+        return;
+    }
+    for (int i=0; i<place-1;i++) {
+        temp1 = temp1->next;
+    }
+    node* temp2 = temp1->next;
+    temp1->next = temp2->next;
+    delete temp2;
+    return;
+}
 
