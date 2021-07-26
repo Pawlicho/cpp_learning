@@ -19,6 +19,7 @@ class linked_list {
        void insert(int data, size_t place);
        //linked_list operator+(const linked_list& right);
        void remove(size_t place);
+       void reverse();
 };
 
 #endif 

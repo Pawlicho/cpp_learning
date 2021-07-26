@@ -14,6 +14,8 @@ int main() {
     list.display();
     list.remove(0);
     list.display();
+    list.reverse();
+    list.display();
 
   
     return 0;

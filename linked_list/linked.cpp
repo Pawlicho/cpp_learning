@@ -82,3 +82,17 @@ void linked_list::remove(size_t place)
     return;
 }
 
+void linked_list::reverse() 
+{
+    node* prev, *current, *next;
+    prev=NULL;
+    current = head_;
+    tail_=head_;
+    while (current!=NULL) {
+        next=current->next;
+        current->next = prev;
+        prev=current;
+        current=next;
+    }
+    head_=prev;
+}
